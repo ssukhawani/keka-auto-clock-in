@@ -1,0 +1,25 @@
+{
+  "name": "Proxy Clock In",
+  "description": "Keka Clock In & Clock Out",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": {
+      "16": "icon.png",
+      "24": "icon.png",
+      "32": "icon.png"
+    },
+    "default_title": "No More Clock In Manually",
+    "default_popup": "popup/popup.html"
+  },
+  "background":{
+    "service_worker": "background.js"
+  },
+  "permissions":["tabs","storage"],
+  "content_scripts":[
+    {
+        "matches":["https://*.keka.com/*"],
+        "js":["clockIn.js"]
+    }
+  ]
+}
